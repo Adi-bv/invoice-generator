@@ -1,0 +1,122 @@
+.homepage-content{
+  width: 60%; 
+  margin-top: 20%;
+}
+.Button{
+  margin-top: 15px;
+}
+.dueDate{
+  margin-top: 10px;
+}
+
+.inputData{
+  border: none;
+  background: #f5f7f9;
+  border-radius: 5px;
+  padding: 5px 10px ;
+}
+
+.invoice{
+  margin-top: 6%;
+  display: flex;
+  flex-direction: column;  
+  border: 2px solid lightgrey; 
+  border-radius: 15px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 30px 70px 35px;
+  min-width: 88%;
+}
+
+#line{
+  margin-top: 50px;
+}
+
+.bill{
+  display: flex; 
+  justify-content: center; 
+}
+.bill-to{
+  width: 100%;
+}
+.bill-to input{
+  width: 90%;
+}
+.bill-from input{
+  width: 100%;
+}
+.bill-from{
+  width: 100%;
+}
+
+.margin{
+  margin-top: 10px;
+}
+
+.margin-left{
+  margin-left: 15px;
+}
+
+
+.print-btn{
+  margin-left: 13px; 
+}
+
+.width{
+  width: 120px;
+}
+.title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.hed {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.icon-cross {
+  cursor: pointer;
+}
+
+.container {
+  padding: 15px;
+}
+
+.forms {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.margin-left {
+  margin-left: 0;
+}
+
+.buttons2 {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+}
+
+.btn2 {
+  padding: 10px 20px;
+}
+
+@media (max-width: 768px) {
+  .forms {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .container {
+    padding: 10px;
+  }
+
+  .buttons2 {
+    justify-content: center;
+  }
+}
