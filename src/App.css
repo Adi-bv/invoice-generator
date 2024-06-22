@@ -105,6 +105,10 @@
 .btn2 {
   padding: 10px 20px;
 }
+.align-btn{
+  display: flex;
+  justify-content: space-between;
+}
 
 @media (max-width: 768px) {
   .forms {

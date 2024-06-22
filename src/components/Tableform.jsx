@@ -1,15 +1,14 @@
-import React, { useState } from "react"; 
+import { useState } from "react";
 import { Dialog, DialogTitle, DialogContent } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
-import { MdDelete } from "react-icons/md";
+import { MdDelete } from "react-icons/md"; 
 
-const Tableform = () => { 
+const Tableform = () => {
   const [List, setList] = useState([]);
   const [Amount, setAmount] = useState("");
   const [openAirPopup, setAirPopup] = useState(false);
   const [Item, setItem] = useState("");
-  const [discount, setDiscount] = useState('');
-  const [Qty, setQty] = useState(1);
+  const [discount, setDiscount] = useState("");
 
   const addData = () => {
     const newList = [...List, { product: Item, amount: Amount, quantity: 1 }];
@@ -36,9 +35,9 @@ const Tableform = () => {
       sum += item.amount * item.quantity;
     });
 
-    if (discount !== '') {
-      let dis = parseInt(discount);
-      sum = sum - ((sum * dis) / 100);
+    if (discount !== "") {
+      let dis = parseFloat(discount);
+      sum = sum - (sum * dis) / 100;
     }
 
     return sum;
@@ -82,11 +81,16 @@ const Tableform = () => {
                           className="inputData"
                           placeholder="0"
                           value={item.quantity}
-                          onChange={(e) => handleQty(index, parseInt(e.target.value))}
+                          onChange={(e) =>
+                            handleQty(index, parseInt(e.target.value))
+                          }
                         />
                       </td>
                       <td className="col-md-2">
-                        <MdDelete onClick={() => delData(item.product)} style={{ fontSize: '24px' }} />
+                        <MdDelete
+                          onClick={() => delData(item.product)}
+                          style={{ fontSize: "24px", cursor: "pointer"}}
+                        />
                       </td>
                     </tr>
                   ))
@@ -107,8 +111,9 @@ const Tableform = () => {
                   <p>
                     <input
                       className="inputData"
-                      style={{width: "80px"}}
+                      style={{ width: "80px" }}
                       type="number"
+                      step="0.01"
                       placeholder="00"
                       value={discount}
                       onChange={(e) => setDiscount(e.target.value)}
@@ -139,13 +144,18 @@ const Tableform = () => {
               </tr>
             </tbody>
           </table>
-        </div> 
-        <button
-          className="btn btn-primary"
-          onClick={() => setAirPopup(true)}
-        >
-          Add Product
-        </button>
+        </div>
+        <div className="align-btn">
+          <button className="btn btn-primary" onClick={() => setAirPopup(true)}>
+            Add Product
+          </button>
+          <button
+            className="btn btn-primary Button"
+            onClick={() => window.location.reload()}
+          >
+            Generate Another Invoice
+          </button>
+        </div>
       </div>
       <Dialog open={openAirPopup}>
         <DialogTitle>
@@ -173,7 +183,7 @@ const Tableform = () => {
                 placeholder="Amount ₹"
               />
             </div>
-            <div className="buttons buttons2" >
+            <div className="buttons buttons2">
               <button className="btn btn-primary margin btn2" onClick={addData}>
                 Add
               </button>
@@ -186,4 +196,3 @@ const Tableform = () => {
 };
 
 export default Tableform;
-
